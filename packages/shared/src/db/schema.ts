@@ -1,5 +1,5 @@
-import { pgTable, serial, text, numeric } from 'drizzle-orm/pg-core'
-import { type InferSelectModel } from 'drizzle-orm'
+import type { InferSelectModel } from 'drizzle-orm'
+import { numeric, pgTable, serial, text } from 'drizzle-orm/pg-core'
 
 export const productsTable = pgTable('products', {
   id: serial('id').primaryKey(),
