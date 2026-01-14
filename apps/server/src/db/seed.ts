@@ -1,8 +1,6 @@
 import * as schema from '@restaurant/shared'
 import bcrypt from 'bcrypt'
-import { drizzle } from 'drizzle-orm/node-postgres'
-
-const db = drizzle(process.env.DATABASE_URL!)
+import db from '../db'
 
 async function main() {
   console.log('🌱 Iniciando Seeding...')
