@@ -1,16 +1,18 @@
 import 'dotenv/config'
 import cors from 'cors'
-import express, { type Request, type Response } from 'express'
+import express from 'express'
+import { errorHandler } from './middlewares/error'
+import router from './routes'
 
 //import './db/seed'
 
 const app = express()
-app.use(cors())
 const PORT = process.env.PORT || 3000
-
-app.get('/', (_req: Request, res: Response) => {
-  res.json({ message: 'Express + TypeScript + pnpm is running!' })
-})
+app.disable('x-powered-by')
+app.use(express.json())
+app.use(cors())
+app.use('/api', router)
+app.use(errorHandler)
 
 app.listen(PORT, () => {
   console.log(`[server]: Server is running at http://localhost:${PORT}`)
