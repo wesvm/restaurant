@@ -32,6 +32,10 @@ export const loginAdmin = async (req: Request, res: Response, next: NextFunction
   }
 }
 
+export const logout = async (_req: Request, res: Response, _next: NextFunction) => {
+  return res.status(200).json(success('Sesión cerrada exitosamente', null))
+}
+
 export const getCurrentUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
     if (!req.user) {
