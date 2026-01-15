@@ -1,13 +1,31 @@
-import { type LoginInput, notFound, success, unauthorized } from '@restaurant/shared'
+import {
+  type AdminLoginInput,
+  type LoginInput,
+  notFound,
+  success,
+  unauthorized,
+} from '@restaurant/shared'
 import type { NextFunction, Request, Response } from 'express'
-import { getUserById, loginWithPin } from '../services/auth.service'
+import { getUserById, loginWithPassword, loginWithPin } from '../services/auth.service'
 
 export const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const data: LoginInput = req.body
     const result = await loginWithPin(data)
 
-    const response = success('Login exitoso', result)
+    const response = success(`Bienvenido ${result.user.name}`, result)
+    return res.status(response.status).json(response)
+  } catch (error) {
+    next(error)
+  }
+}
+
+export const loginAdmin = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const data: AdminLoginInput = req.body
+    const result = await loginWithPassword(data)
+
+    const response = success(`Bienvenido ${result.user.name}`, result)
     return res.status(response.status).json(response)
   } catch (error) {
     next(error)
