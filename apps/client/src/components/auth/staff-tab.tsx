@@ -1,25 +1,21 @@
-import type { LoginInput } from '@restaurant/shared'
-import { useState } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { type LoginInput, loginSchema } from '@restaurant/shared'
+import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { useAuth } from '@/hooks/use-auth'
-
+import { ReusableForm } from '../reusable-form'
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form'
 export const StaffTab = () => {
   const { login, isLoginLoading } = useAuth()
-  const [employeeCode, setEmployeeCode] = useState('')
-  const [pin, setPin] = useState('')
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-
-    const data: LoginInput = {
-      employeeCode,
-      pin,
-    }
-
-    login(data)
-  }
+  const form = useForm<LoginInput>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      employeeCode: '',
+      pin: '',
+    },
+  })
 
   return (
     <Card>
@@ -28,28 +24,51 @@ export const StaffTab = () => {
         <CardDescription>Accede al sistema con tu codigo unico (ejm. W001, C001)</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Input
-            type="text"
-            value={employeeCode}
-            onChange={(e) => setEmployeeCode(e.target.value)}
-            disabled={isLoginLoading}
-            placeholder="W001"
-            className="text-2xl! font-semibold tracking-widest p-6 text-center uppercase rounded-lg"
+        <ReusableForm id="staff-form" form={form} onSubmit={login}>
+          <FormField
+            control={form.control}
+            name="employeeCode"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Codigo de empleado</FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    placeholder="W001"
+                    className="text-2xl! font-semibold tracking-widest p-6 text-center uppercase rounded-lg"
+                    disabled={isLoginLoading}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="pin"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Pin</FormLabel>
+                <FormControl>
+                  <Input
+                    type="password"
+                    placeholder="0000"
+                    className="text-2xl! font-semibold tracking-widest p-6 text-center uppercase rounded-lg"
+                    maxLength={4}
+                    disabled={isLoginLoading}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
 
-          <Input
-            type="password"
-            placeholder="PIN (4 dígitos)"
-            maxLength={4}
-            value={pin}
-            onChange={(e) => setPin(e.target.value)}
-            disabled={isLoginLoading}
-          />
-          <Button type="submit" className="w-full" disabled={isLoginLoading}>
+          <Button form="staff-form" type="submit" className="w-full" disabled={isLoginLoading}>
             {isLoginLoading ? 'Iniciando...' : 'Iniciar Sesión'}
           </Button>
-        </form>
+        </ReusableForm>
       </CardContent>
     </Card>
   )
