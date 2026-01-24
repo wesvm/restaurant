@@ -75,7 +75,7 @@ export const handleApiError = (error: unknown): ApiError => {
       })
 
       setTimeout(() => {
-        window.location.href = '/login'
+        window.location.href = '/auth'
       }, 1500)
 
       return {

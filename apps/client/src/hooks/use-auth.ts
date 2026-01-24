@@ -27,7 +27,7 @@ export const useAuth = () => {
       toast.success('Bienvenido', {
         description: `Hola ${data.user.name}`,
       })
-      navigate({ to: '/dashboard' })
+      navigate({ to: '/' })
     },
   })
 
@@ -41,7 +41,7 @@ export const useAuth = () => {
       toast.success('Bienvenido Admin', {
         description: `Hola ${data.user.name}`,
       })
-      navigate({ to: '/dashboard' })
+      navigate({ to: '/' })
     },
   })
 
