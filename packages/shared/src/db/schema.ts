@@ -153,6 +153,25 @@ export const productsRelations = relations(products, ({ one, many }) => ({
   modifierGroups: many(modifierGroups),
 }))
 
+export const categoriesRelations = relations(categories, ({ many }) => ({
+  products: many(products),
+}))
+
+export const modifierGroupsRelations = relations(modifierGroups, ({ one, many }) => ({
+  product: one(products, {
+    fields: [modifierGroups.productId],
+    references: [products.id],
+  }),
+  modifiers: many(modifiers),
+}))
+
+export const modifiersRelations = relations(modifiers, ({ one }) => ({
+  group: one(modifierGroups, {
+    fields: [modifiers.groupId],
+    references: [modifierGroups.id],
+  }),
+}))
+
 export const ordersRelations = relations(orders, ({ one, many }) => ({
   table: one(tables, { fields: [orders.tableId], references: [tables.id] }),
   waiter: one(users, { fields: [orders.waiterId], references: [users.id] }),

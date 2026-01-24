@@ -1,5 +1,9 @@
+import * as schema from '@restaurant/shared'
 import { drizzle } from 'drizzle-orm/node-postgres'
+import { Pool } from 'pg'
 
-const db = drizzle(process.env.DATABASE_URL!)
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+})
 
-export default db
+export const db = drizzle(pool, { schema })
