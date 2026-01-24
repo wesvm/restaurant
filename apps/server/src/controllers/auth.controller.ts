@@ -10,7 +10,7 @@ import { getUserById, loginWithPassword, loginWithPin } from '../services/auth.s
 
 export const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const data: LoginInput = req.body
+    const data = req.validated?.body as LoginInput
     const result = await loginWithPin(data)
 
     const response = success(`Bienvenido ${result.user.name}`, result)
@@ -22,7 +22,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
 
 export const loginAdmin = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const data: AdminLoginInput = req.body
+    const data = req.validated?.body as AdminLoginInput
     const result = await loginWithPassword(data)
 
     const response = success(`Bienvenido ${result.user.name}`, result)

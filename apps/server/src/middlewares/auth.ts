@@ -22,7 +22,7 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
   const decoded = verifyToken(token)
 
   if (!decoded) {
-    const response = forbidden('Token inválido o expirado')
+    const response = unauthorized('Token inválido o expirado')
     return res.status(response.status).json(response)
   }
 

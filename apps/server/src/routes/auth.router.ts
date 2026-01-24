@@ -6,8 +6,8 @@ import { validate } from '../middlewares/validate'
 
 const router: Router = Router()
 
-router.post('/login', validate(loginSchema), login)
-router.post('/login/admin', validate(adminLoginSchema), loginAdmin)
+router.post('/login', validate({ body: loginSchema }), login)
+router.post('/login/admin', validate({ body: adminLoginSchema }), loginAdmin)
 router.post('/logout', authenticateToken, logout)
 router.get('/me', authenticateToken, getCurrentUser)
 

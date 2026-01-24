@@ -7,7 +7,7 @@ import {
 } from '@restaurant/shared'
 import bcrypt from 'bcrypt'
 import { eq } from 'drizzle-orm'
-import db from '../db'
+import { db } from '../db'
 import { AppError } from '../middlewares/error'
 import { signToken } from '../utils/jwt'
 
