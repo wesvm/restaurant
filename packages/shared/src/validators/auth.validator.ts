@@ -17,5 +17,10 @@ export const adminLoginSchema = z.object({
   password: z.string().min(6, 'La contraseña debe tener al menos 6 caracteres'),
 })
 
+export const idParamsSchema = z.object({
+  id: z.coerce.number().positive(),
+})
+
 export type LoginInput = z.infer<typeof loginSchema>
 export type AdminLoginInput = z.infer<typeof adminLoginSchema>
+export type IdParams = z.infer<typeof idParamsSchema>
