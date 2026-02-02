@@ -1,4 +1,4 @@
-import type { JWTPayload } from '@restaurant/shared'
+import type { JWTPayload } from '@restaurant/shared/dtos'
 import jwt from 'jsonwebtoken'
 
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecretkey'
@@ -10,7 +10,7 @@ export const signToken = (payload: JWTPayload): string => {
 export const verifyToken = (token: string): JWTPayload | null => {
   try {
     return jwt.verify(token, JWT_SECRET) as JWTPayload
-  } catch (error) {
+  } catch (_error) {
     return null
   }
 }

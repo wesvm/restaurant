@@ -1,4 +1,5 @@
-import { forbidden, type JWTPayload, unauthorized } from '@restaurant/shared'
+import type { JWTPayload } from '@restaurant/shared/dtos'
+import { forbidden, unauthorized } from '@restaurant/shared/utils'
 import type { NextFunction, Request, Response } from 'express'
 import { verifyToken } from '../utils/jwt'
 
@@ -12,7 +13,7 @@ declare global {
 
 export const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
+  const token = authHeader?.split(' ')[1]
 
   if (!token) {
     const response = unauthorized('Acceso denegado: token no proporcionado')

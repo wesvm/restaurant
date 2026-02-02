@@ -1,6 +1,6 @@
-import * as schema from '@restaurant/shared'
+import * as schema from '@restaurant/shared/db'
 import bcrypt from 'bcrypt'
-import db from '../db'
+import { db } from '../db'
 
 async function main() {
   console.log('🌱 Iniciando Seeding...')

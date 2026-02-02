@@ -1,4 +1,4 @@
-import { error, serverError } from '@restaurant/shared'
+import { error, serverError } from '@restaurant/shared/utils'
 import type { NextFunction, Request, Response } from 'express'
 
 export class AppError extends Error {

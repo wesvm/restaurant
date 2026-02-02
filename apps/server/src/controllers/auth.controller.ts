@@ -1,10 +1,5 @@
-import {
-  type AdminLoginInput,
-  type LoginInput,
-  notFound,
-  success,
-  unauthorized,
-} from '@restaurant/shared'
+import { notFound, success, unauthorized } from '@restaurant/shared/utils'
+import type { AdminLoginInput, LoginInput } from '@restaurant/shared/validators'
 import type { NextFunction, Request, Response } from 'express'
 import { getUserById, loginWithPassword, loginWithPin } from '../services/auth.service'
 

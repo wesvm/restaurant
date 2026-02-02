@@ -1,4 +1,4 @@
-import { adminLoginSchema, loginSchema } from '@restaurant/shared'
+import { adminLoginSchema, loginSchema } from '@restaurant/shared/validators'
 import { Router } from 'express'
 import { getCurrentUser, login, loginAdmin, logout } from '../controllers/auth.controller'
 import { authenticateToken } from '../middlewares/auth'

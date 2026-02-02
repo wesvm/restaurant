@@ -1,4 +1,5 @@
-import { type GetProductsQuery, type ProductIdParams, success } from '@restaurant/shared'
+import { success } from '@restaurant/shared/utils'
+import type { GetProductsQuery, ProductIdParams } from '@restaurant/shared/validators'
 import type { NextFunction, Request, Response } from 'express'
 import { getAllProducts, getProductById } from '../services/product.service'
 

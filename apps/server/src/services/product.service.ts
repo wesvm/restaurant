@@ -1,10 +1,10 @@
-import {
-  type GetProductsQuery,
-  type ProductsResponse,
-  type ProductWithCategory,
-  type ProductWithDetails,
-  products,
-} from '@restaurant/shared'
+import { products } from '@restaurant/shared/db'
+import type {
+  ProductsResponse,
+  ProductWithCategory,
+  ProductWithDetails,
+} from '@restaurant/shared/dtos'
+import type { GetProductsQuery } from '@restaurant/shared/validators'
 import { and, desc, eq, ilike, or, sql } from 'drizzle-orm'
 import { db } from '../db'
 import { AppError } from '../middlewares/error'

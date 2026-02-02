@@ -1,10 +1,6 @@
-import {
-  type AdminLoginInput,
-  type AuthResponse,
-  type LoginInput,
-  type User,
-  users,
-} from '@restaurant/shared'
+import { type User, users } from '@restaurant/shared/db'
+import type { AuthResponse } from '@restaurant/shared/dtos'
+import type { AdminLoginInput, LoginInput } from '@restaurant/shared/validators'
 import bcrypt from 'bcrypt'
 import { eq } from 'drizzle-orm'
 import { db } from '../db'

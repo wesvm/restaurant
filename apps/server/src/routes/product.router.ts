@@ -1,4 +1,4 @@
-import { getProductsQuerySchema, productIdParamsSchema } from '@restaurant/shared'
+import { getProductsQuerySchema, productIdParamsSchema } from '@restaurant/shared/validators'
 import { Router } from 'express'
 import { getAll, getById } from '../controllers/product.controller'
 import { validate } from '../middlewares/validate'

@@ -1,4 +1,4 @@
-import * as schema from '@restaurant/shared'
+import * as schema from '@restaurant/shared/db'
 import { drizzle } from 'drizzle-orm/node-postgres'
 import { Pool } from 'pg'
 
