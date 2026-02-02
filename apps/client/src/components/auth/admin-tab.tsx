@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { type AdminLoginInput, adminLoginSchema } from '@restaurant/shared'
+import { type AdminLoginInput, adminLoginSchema } from '@restaurant/shared/validators'
 import { useForm } from 'react-hook-form'
 import { ReusableForm } from '@/components/reusable-form'
 import { Button } from '@/components/ui/button'

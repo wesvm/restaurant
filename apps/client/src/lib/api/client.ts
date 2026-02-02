@@ -1,4 +1,4 @@
-import type { ApiResponse } from '@restaurant/shared'
+import type { ApiResponse } from '@restaurant/shared/types'
 import axios, { type AxiosError, type AxiosResponse, type InternalAxiosRequestConfig } from 'axios'
 import { authStorage } from '../auth-storage'
 

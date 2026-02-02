@@ -1,4 +1,4 @@
-import type { AdminLoginInput, LoginInput } from '@restaurant/shared'
+import type { AdminLoginInput, LoginInput } from '@restaurant/shared/validators'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
 import { toast } from 'sonner'

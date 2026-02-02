@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { type LoginInput, loginSchema } from '@restaurant/shared'
+import { type LoginInput, loginSchema } from '@restaurant/shared/validators'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'

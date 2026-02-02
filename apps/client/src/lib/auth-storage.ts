@@ -1,4 +1,4 @@
-import type { AuthResponse } from '@restaurant/shared'
+import type { AuthResponse } from '@restaurant/shared/dtos'
 
 const TOKEN_KEY = 'auth_token'
 const USER_KEY = 'auth_user'

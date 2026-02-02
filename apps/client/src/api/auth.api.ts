@@ -1,4 +1,5 @@
-import type { AdminLoginInput, AuthResponse, LoginInput } from '@restaurant/shared'
+import type { AuthResponse } from '@restaurant/shared/dtos'
+import type { AdminLoginInput, LoginInput } from '@restaurant/shared/validators'
 import { api } from '@/lib/api/client'
 
 export const authApi = {
