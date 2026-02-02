@@ -1,8 +1,1 @@
-export * from './db/schema'
-export * from './dtos/auth.dto'
-export * from './dtos/product.dto'
-export * from './types/api.types'
-export * from './utils/api-response'
-export * from './validators/auth.validator'
-export * from './validators/product.validator'
 export const API_URL = 'http://localhost:3000/api'

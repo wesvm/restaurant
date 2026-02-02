@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w"
@@ -13,6 +11,32 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.26.0",
+  "exports": {
+    "./dtos": "./src/dtos/index.ts",
+    "./validators": "./src/validators/index.ts",
+    "./db": "./src/db/schema.ts",
+    "./types": "./src/types/api.types.ts",
+    "./utils": "./src/utils/api-response.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "dtos": [
+        "./src/dtos/index.ts"
+      ],
+      "validators": [
+        "./src/validators/index.ts"
+      ],
+      "db": [
+        "./src/db/schema.ts"
+      ],
+      "types": [
+        "./src/types/api.types.ts"
+      ],
+      "utils": [
+        "./src/utils/api-response.ts"
+      ]
+    }
+  },
   "devDependencies": {
     "typescript": "^5.9.3"
   },
