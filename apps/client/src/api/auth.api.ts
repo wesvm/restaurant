@@ -1,5 +1,5 @@
 import type { AdminLoginInput, AuthResponse, LoginInput } from '@restaurant/shared'
-import { api } from './client'
+import { api } from '@/lib/api/client'
 
 export const authApi = {
   login: async (data: LoginInput): Promise<AuthResponse> =>

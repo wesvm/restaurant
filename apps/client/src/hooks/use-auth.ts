@@ -2,7 +2,7 @@ import type { AdminLoginInput, LoginInput } from '@restaurant/shared'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
 import { toast } from 'sonner'
-import { authApi } from '@/lib/api/auth.api'
+import { authApi } from '@/api/auth.api'
 import { authStorage } from '@/lib/auth-storage'
 
 export const useAuth = () => {
